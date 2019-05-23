@@ -1,0 +1,7 @@
+.button {
+  flex-grow: 1;
+}
+
+.form-field:not(:first-child) {
+  padding-left: 1rem;
+}

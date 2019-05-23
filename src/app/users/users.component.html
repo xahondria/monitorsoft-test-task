@@ -1,7 +1,10 @@
 <h2>Users</h2>
 
+<button mat-raised-button (click)="openDialog()" class="button">Add user</button>
+<button mat-raised-button (click)="addWorkman()" class="button">Edit user</button>
+
 <div class="mat-elevation-z8">
-  <mat-table [dataSource]="dataSource.data">
+  <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> id</mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
@@ -30,5 +33,5 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-  <mat-paginator [length]="dataSource.total" [pageSizeOptions]="[3, 5, 10]" showFirstLastButtons></mat-paginator>
+  <mat-paginator [length]="totalUsers" [pageSizeOptions]="[3, 5, 10]" showFirstLastButtons></mat-paginator>
 </div>
