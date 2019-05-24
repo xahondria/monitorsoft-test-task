@@ -1,10 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../user.service';
-import { MatDialog, MatDialogConfig, MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material';
 import { tap } from 'rxjs/operators';
 import { Page } from '../page';
 import { User } from '../user';
-import { UserCreatorComponent } from '../user-creator/user-creator.component';
 
 @Component({
   selector: 'app-users',
@@ -21,7 +20,6 @@ export class UsersComponent implements AfterViewInit, OnInit {
 
   constructor(
     private userService: UserService,
-    private dialog: MatDialog,
   ) {
   }
 
@@ -31,12 +29,6 @@ export class UsersComponent implements AfterViewInit, OnInit {
       this.totalUsers = p.total;
       this.dataSource = p.data;
     });
-  }
-
-  openDialog() {
-    const dialogConfig = new MatDialogConfig();
-
-    this.dialog.open(UserCreatorComponent, dialogConfig);
   }
 
   ngOnInit() {

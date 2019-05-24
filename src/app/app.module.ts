@@ -10,13 +10,18 @@ import { MessagesComponent } from './messages/messages.component';
 import { UsersComponent } from './users/users.component';
 import { UserCreatorComponent } from './user-creator/user-creator.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { NavigationComponent } from './navigation/navigation.component';
+import { WorkmenComponent } from './workmen/workmen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MessagesComponent,
     UsersComponent,
-    UserCreatorComponent
+    UserCreatorComponent,
+    NavigationComponent,
+    WorkmenComponent
   ],
   entryComponents: [UserCreatorComponent],
   imports: [
@@ -25,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [ AppComponent ]

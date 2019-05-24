@@ -1,6 +1,13 @@
 import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule, MatDialogModule, MatInputModule, MatPaginatorModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatDialogModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatPaginatorModule
+} from '@angular/material';
 
 const MaterialComponents = [
   MatTableModule,
@@ -8,6 +15,8 @@ const MaterialComponents = [
   MatButtonModule,
   MatDialogModule,
   MatInputModule,
+  MatMenuModule,
+  MatListModule,
 ];
 
 @NgModule({
