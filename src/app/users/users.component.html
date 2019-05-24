@@ -27,7 +27,7 @@
       <mat-cell *matCellDef="let element"><img [src]="element.avatar" alt="avatar"></mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
   <mat-paginator [length]="totalUsers" [pageSizeOptions]="[3, 5, 10]" showFirstLastButtons></mat-paginator>

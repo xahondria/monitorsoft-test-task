@@ -3,35 +3,29 @@
 <button mat-raised-button (click)="openDialog()" class="button">Add user</button>
 <button mat-raised-button class="button">Edit user</button>
 
-<div class="mat-elevation-z8">
-  <mat-table [dataSource]="dataSource">
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef> id</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-    </ng-container>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef> email</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
-    </ng-container>
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> id</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+  </ng-container>
 
-    <ng-container matColumnDef="first_name">
-      <mat-header-cell *matHeaderCellDef> firstName</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.first_name}} </mat-cell>
-    </ng-container>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> name</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
 
-    <ng-container matColumnDef="last_name">
-      <mat-header-cell *matHeaderCellDef> lastName</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.last_name}} </mat-cell>
-    </ng-container>
+  <ng-container matColumnDef="job">
+    <mat-header-cell *matHeaderCellDef> job</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.job}} </mat-cell>
+  </ng-container>
 
-    <ng-container matColumnDef="avatar">
-      <mat-header-cell *matHeaderCellDef> avatar</mat-header-cell>
-      <mat-cell *matCellDef="let element"><img [src]="element.avatar" alt="avatar"></mat-cell>
-    </ng-container>
+  <ng-container matColumnDef="createdAt">
+    <mat-header-cell *matHeaderCellDef> createdAt</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.createdAt}} </mat-cell>
+  </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-  <mat-paginator [length]="totalUsers" [pageSizeOptions]="[3, 5, 10]" showFirstLastButtons></mat-paginator>
-</div>
+  <mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Workman } from './workman';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from './message.service';
 import { catchError, tap } from 'rxjs/operators';
@@ -16,6 +16,8 @@ export class WorkmanService {
 
   private apiUrl = 'https://reqres.in/api/users'; // URL to web api
 
+  newWorkman = new Subject<Workman>();
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService
@@ -25,7 +27,9 @@ export class WorkmanService {
   addWorkman(workman: Workman): Observable<Workman> {
     return this.http.post<Workman>(this.apiUrl, workman, httpOptions)
       .pipe(
-        tap((newWorkman: Workman) => this.log(`added workman id=${newWorkman.id}, name ${newWorkman.name}, job ${newWorkman.job}`)),
+        tap((newWorkman: Workman) => {
+          this.log(`added workman id=${ newWorkman.id }, name ${ newWorkman.name }, job ${ newWorkman.job }`);
+        }),
         catchError(this.handleError<Workman>('addWorkman'))
       );
   }

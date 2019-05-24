@@ -23,13 +23,14 @@ export class UserService {
   }
 
   getUsersPage(page: number = 1, elementsPerPage: number = 3): Observable<Page> {
+    const emptyPage: Page = new Page();
     return this.http.get<Page>(this.usersPageUrl, {
       params: new HttpParams()
         .set('page', page.toString())
         .set('per_page', elementsPerPage.toString())
     }).pipe(
-      tap(_ => this.log(`fetched users page #${_.page} of ${_.total_pages}`)),
-      catchError(this.handleError<Page>('getUsersPage, []'))
+      tap(_ => this.log(`fetched users page #${ _.page } of ${ _.total_pages }`)),
+      catchError(this.handleError<Page>('getUsersPage', emptyPage as Page))
     );
   }
 

@@ -5,16 +5,15 @@ import { WorkmanService } from '../workman.service';
 
 @Component({
   selector: 'app-user-creator',
-  templateUrl: './user-creator.component.html',
-  styleUrls: [ './user-creator.component.css' ]
+  templateUrl: './workman-creator.component.html',
+  styleUrls: [ './workman-creator.component.css' ]
 })
-export class UserCreatorComponent implements OnInit {
+export class WorkmanCreatorComponent implements OnInit {
 
   formGroup: FormGroup;
   newWorkman: Workman;
 
-  constructor(private workmanService: WorkmanService) {
-  }
+  constructor(private workmanService: WorkmanService) {}
 
   submit() {
     this.newWorkman = this.formGroup.value;
@@ -22,8 +21,8 @@ export class UserCreatorComponent implements OnInit {
     if (!this.newWorkman.name || !this.newWorkman.job) {
       return;
     }
-    this.workmanService.addWorkman( this.newWorkman as Workman)
-      .subscribe();
+    this.workmanService.addWorkman(this.newWorkman as Workman)
+      .subscribe(workman => this.workmanService.newWorkman.next(workman));
   }
 
   ngOnInit() {

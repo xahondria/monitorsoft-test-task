@@ -8,7 +8,7 @@ import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { UsersComponent } from './users/users.component';
-import { UserCreatorComponent } from './user-creator/user-creator.component';
+import { WorkmanCreatorComponent } from './workman-creator/workman-creator.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -19,11 +19,11 @@ import { WorkmenComponent } from './workmen/workmen.component';
     AppComponent,
     MessagesComponent,
     UsersComponent,
-    UserCreatorComponent,
+    WorkmanCreatorComponent,
     NavigationComponent,
     WorkmenComponent
   ],
-  entryComponents: [UserCreatorComponent],
+  entryComponents: [WorkmanCreatorComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
