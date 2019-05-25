@@ -30,7 +30,7 @@
 
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
-    <mat-cell *matCellDef="let element; let row" (click)="selection.isSelected(row) && selection.toggle(row)">
+    <mat-cell *matCellDef="let element; let row" (click)="!selection.isSelected(row) && selection.toggle(row)">
       <span *ngIf="!selection.isSelected(row)">{{element.name}}</span>
       <mat-form-field *ngIf="selection.isSelected(row)">
         <input
