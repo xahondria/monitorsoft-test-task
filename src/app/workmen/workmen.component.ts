@@ -60,9 +60,9 @@ export class WorkmenComponent implements AfterViewInit, OnInit {
   //     https://angular.io/api/forms/FormControlDirective#use-with-ngmodel"
 
   // TODO fix bug with changing name on selecting all checkboxes
+  //    это напрямую связано с deprecated выше
 
   update(workman: Workman): void {
-    console.log(workman);
     this.workmanService.updateWorkman(workman)
       .subscribe();
   }
@@ -93,7 +93,7 @@ export class WorkmenComponent implements AfterViewInit, OnInit {
     if (!row) {
       return `${ this.isAllSelected() ? 'select' : 'deselect' } all`;
     }
-    return `${ this.selection.isSelected(row) ? 'deselect' : 'select' } row ${ row.name }`;
+    return `${ this.selection.isSelected(row) ? 'deselect' : 'select' } row ${ row.id }`;
   }
 
   ngOnInit(): void {

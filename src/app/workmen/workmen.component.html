@@ -30,21 +30,28 @@
 
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
-    <mat-cell *matCellDef="let element; let row" (click)="!selection.isSelected(row) && selection.toggle(row)">
+    <mat-cell *matCellDef="let element; let row">
       <span *ngIf="!selection.isSelected(row)">{{element.name}}</span>
-      <mat-form-field *ngIf="selection.isSelected(row)">
-        <input
-          matInput
-          [formControl]="nameFormControl"
-          [(ngModel)]="element.name"
-          (change)="update(element)"/>
-      </mat-form-field>
+<!--      <mat-form-field *ngIf="selection.isSelected(row)">-->
+<!--        <input matInput-->
+<!--               [formControl]="nameFormControl"-->
+<!--               [(ngModel)]="element.name"-->
+<!--               (change)="update(element)"/>-->
+<!--      </mat-form-field>-->
+        <input *ngIf="selection.isSelected(row)"
+               [(ngModel)]="element.name"
+               (change)="update(element)"/>
     </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="job">
     <mat-header-cell *matHeaderCellDef> Job</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.job}} </mat-cell>
+    <mat-cell *matCellDef="let element; let row">
+      <span *ngIf="!selection.isSelected(row)">{{element.job}}</span>
+      <input *ngIf="selection.isSelected(row)"
+             [(ngModel)]="element.job"
+             (change)="update(element)"/>
+    </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="createdAt">
@@ -53,6 +60,6 @@
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="!selection.isSelected(row) && selection.toggle(row)"></mat-row>
 </mat-table>
 
