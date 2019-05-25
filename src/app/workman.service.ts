@@ -24,6 +24,7 @@ export class WorkmanService {
   ) {
   }
 
+  /** Creates a new element via API */
   addWorkman(workman: Workman): Observable<Workman> {
     return this.http.post<Workman>(this.apiUrl, workman, httpOptions)
       .pipe(
@@ -33,6 +34,28 @@ export class WorkmanService {
         catchError(this.handleError<Workman>('addWorkman'))
       );
   }
+
+  /** Updates an element via API */
+  updateWorkman(workman: Workman): Observable<any> {
+    console.log('test');
+    return this.http.put(this.apiUrl, workman, httpOptions).pipe(
+      tap(_ => this.log(`updated workman id=${ workman.id }`)),
+      catchError(this.handleError<Workman>('updateWorkman'))
+    );
+  }
+
+  /** Deletes an element via API */
+  deleteWorkman(workman: Workman | number): Observable<Workman> {
+    const id = typeof workman === 'number' ? workman : workman.id;
+    console.log(typeof workman);
+    console.log(id);
+    const url = `${ this.apiUrl }/${ id }`;
+    return this.http.delete<Workman>(url, httpOptions).pipe(
+      tap(_ => this.log(`deleted workman id=${ id }`)),
+      catchError(this.handleError<Workman>('deleteWorkman'))
+    );
+  }
+
 
   private log(message: string) {
     this.messageService.add(`WorkmanService: ${ message }`);

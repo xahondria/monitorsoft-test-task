@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { UsersComponent } from './users/users.component';
 import { WorkmanCreatorComponent } from './workman-creator/workman-creator.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WorkmenComponent } from './workmen/workmen.component';
@@ -21,7 +21,7 @@ import { WorkmenComponent } from './workmen/workmen.component';
     UsersComponent,
     WorkmanCreatorComponent,
     NavigationComponent,
-    WorkmenComponent
+    WorkmenComponent,
   ],
   entryComponents: [WorkmanCreatorComponent],
   imports: [
@@ -31,6 +31,7 @@ import { WorkmenComponent } from './workmen/workmen.component';
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [ AppComponent ]

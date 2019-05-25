@@ -1,27 +1,54 @@
 <h2>Workmen POST, PUT, DELETE</h2>
 
-<button mat-raised-button (click)="openDialog()" class="button">Add user</button>
-<button mat-raised-button class="button">Edit user</button>
+<button mat-raised-button (click)="openDialog()" class="button" title="Add">Add</button>
+<button mat-raised-button (click)="delete()" class="button" title="Delete">Delete</button>
 
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+  <!-- Checkbox Column -->
+  <ng-container matColumnDef="select">
+    <mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()"
+                    [aria-label]="checkboxLabel()">
+      </mat-checkbox>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)"
+                    [aria-label]="checkboxLabel(row)">
+      </mat-checkbox>
+    </mat-cell>
+  </ng-container>
+
   <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef> id</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    <mat-header-cell *matHeaderCellDef> Id</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef> name</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+    <mat-cell *matCellDef="let element; let row" (click)="selection.isSelected(row) && selection.toggle(row)">
+      <span *ngIf="!selection.isSelected(row)">{{element.name}}</span>
+      <mat-form-field *ngIf="selection.isSelected(row)">
+        <input
+          matInput
+          [formControl]="nameFormControl"
+          [(ngModel)]="element.name"
+          (change)="update(element)"/>
+      </mat-form-field>
+    </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="job">
-    <mat-header-cell *matHeaderCellDef> job</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Job</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.job}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="createdAt">
-    <mat-header-cell *matHeaderCellDef> createdAt</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> CreatedAt</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.createdAt}} </mat-cell>
   </ng-container>
 
