@@ -1,0 +1,23 @@
+<h2 matDialogTitle>Sign In</h2>
+
+<mat-dialog-content>
+  <mat-form-field class="form-field">
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button
+    mat-raised-button
+    mat-dialog-close
+    color="primary"
+    class="button"
+    title="Sign in"
+    (click)="signIn()">Sign In
+  </button>
+</mat-dialog-actions>

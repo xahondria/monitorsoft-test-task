@@ -32,15 +32,9 @@
     <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
     <mat-cell *matCellDef="let element; let row">
       <span *ngIf="!selection.isSelected(row)">{{element.name}}</span>
-<!--      <mat-form-field *ngIf="selection.isSelected(row)">-->
-<!--        <input matInput-->
-<!--               [formControl]="nameFormControl"-->
-<!--               [(ngModel)]="element.name"-->
-<!--               (change)="update(element)"/>-->
-<!--      </mat-form-field>-->
-        <input *ngIf="selection.isSelected(row)"
-               [(ngModel)]="element.name"
-               (change)="update(element)"/>
+      <input *ngIf="selection.isSelected(row)"
+             [(ngModel)]="element.name"
+             (change)="update(element)"/>
     </mat-cell>
   </ng-container>
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import {
   MatButtonModule, MatCheckboxModule,
-  MatDialogModule, MatFormFieldModule,
+  MatDialogModule, MatFormFieldModule, MatIconModule,
   MatInputModule,
   MatListModule,
   MatMenuModule,
@@ -19,6 +19,7 @@ const MaterialComponents = [
   MatMenuModule,
   MatListModule,
   MatCheckboxModule,
+  MatIconModule,
 ];
 
 @NgModule({

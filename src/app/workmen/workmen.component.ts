@@ -4,7 +4,6 @@ import { WorkmanCreatorComponent } from '../workman-creator/workman-creator.comp
 import { Workman } from '../workman';
 import { WorkmanService } from '../workman.service';
 import { SelectionModel } from '@angular/cdk/collections';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-workmen',
@@ -20,8 +19,6 @@ export class WorkmenComponent implements AfterViewInit, OnInit {
   dataSource: Workman[] = [];
   displayedColumns: string[] = [ 'select', 'id', 'name', 'job', 'createdAt' ];
   selection = new SelectionModel<Workman>(true, []);
-
-  nameFormControl = new FormControl();
 
   @HostListener('document: keydown.escape', [ '$event' ]) onEscape(event: KeyboardEvent) {
     if (event.key === 'Escape' && this.selection.selected.length) {
@@ -51,17 +48,6 @@ export class WorkmenComponent implements AfterViewInit, OnInit {
   }
 
   /** Updates an element */
-
-  // TODO Fix " It looks like you're using ngModel on the same form field as formControl.
-  //     Support for using the ngModel input property and ngModelChange event with
-  //     reactive form directives has been deprecated in Angular v6 and will be removed
-  //     in Angular v7.
-  //     For more information on this, see our API docs here:
-  //     https://angular.io/api/forms/FormControlDirective#use-with-ngmodel"
-
-  // TODO fix bug with changing name on selecting all checkboxes
-  //    это напрямую связано с deprecated выше
-
   update(workman: Workman): void {
     this.workmanService.updateWorkman(workman)
       .subscribe();

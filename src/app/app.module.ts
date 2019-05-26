@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WorkmenComponent } from './workmen/workmen.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
+import { AuthorizationFormComponent } from './authorization-form/authorization-form.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +24,13 @@ import { WorkmenComponent } from './workmen/workmen.component';
     WorkmanCreatorComponent,
     NavigationComponent,
     WorkmenComponent,
+    AuthorizationComponent,
+    AuthorizationFormComponent,
   ],
-  entryComponents: [WorkmanCreatorComponent],
+  entryComponents: [
+    WorkmanCreatorComponent,
+    AuthorizationFormComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
