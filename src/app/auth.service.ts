@@ -58,7 +58,10 @@ export class AuthService {
     return this.http.post<any>(url, {
       'refreshToken': this.getRefreshToken()
     }).pipe(
-      tap(() => this.doLogoutUser()),
+      tap(() => {
+        this.doLogoutUser();
+        this.log(`User logged out`);
+      }),
       mapTo(true),
       catchError(this.handleError('logout', false))
     );
