@@ -20,6 +20,7 @@ const MaterialComponents = [
   MatListModule,
   MatCheckboxModule,
   MatIconModule,
+
 ];
 
 @NgModule({

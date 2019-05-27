@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
-import { AuthorizationFormComponent } from '../authorization-form/authorization-form.component';
+import { AuthFormComponent } from './auth-form/auth-form.component';
 
 @Component({
   selector: 'app-authorization',
-  templateUrl: './authorization.component.html',
-  styleUrls: ['./authorization.component.css']
+  templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.css']
 })
-export class AuthorizationComponent implements OnInit {
+export class AuthComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
@@ -16,7 +16,7 @@ export class AuthorizationComponent implements OnInit {
   /** Opens modal window */
   openDialog() {
     const dialogConfig = new MatDialogConfig();
-    this.dialog.open(AuthorizationFormComponent, dialogConfig);
+    this.dialog.open(AuthFormComponent, dialogConfig);
   }
 
   ngOnInit() {

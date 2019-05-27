@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthorizationFormComponent } from './authorization-form.component';
+import { AuthFormComponent } from './auth-form.component';
 
-describe('AuthorizationFormComponent', () => {
-  let component: AuthorizationFormComponent;
-  let fixture: ComponentFixture<AuthorizationFormComponent>;
+describe('AuthFormComponent', () => {
+  let component: AuthFormComponent;
+  let fixture: ComponentFixture<AuthFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthorizationFormComponent ]
+      declarations: [ AuthFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthorizationFormComponent);
+    fixture = TestBed.createComponent(AuthFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
