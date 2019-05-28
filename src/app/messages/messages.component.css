@@ -33,3 +33,8 @@ button.clear {
   color: #888;
   margin-bottom: 12px;
 }
+
+.container {
+  margin: 20px;
+}
+

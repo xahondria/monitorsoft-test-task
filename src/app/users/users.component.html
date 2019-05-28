@@ -1,31 +1,43 @@
 <app-header></app-header>
 
-<h2>Users GET</h2>
+<h2 class="title">Users GET</h2>
 
-<div class="mat-elevation-z8">
+<div class="container mat-elevation-z8">
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef> id</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      <mat-header-cell class="column column--id" *matHeaderCellDef> Id</mat-header-cell>
+      <mat-cell class="column column--id" *matCellDef="let element">
+        <span class="mobile-label">Id:</span>
+        {{element.id}}
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef> email</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+      <mat-header-cell class="column column--email" *matHeaderCellDef> Email</mat-header-cell>
+      <mat-cell class="column column--email" *matCellDef="let element">
+        <span class="mobile-label">Email:</span>
+        {{element.email}}
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="first_name">
-      <mat-header-cell *matHeaderCellDef> firstName</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.first_name}} </mat-cell>
+      <mat-header-cell class="column" *matHeaderCellDef> First Name</mat-header-cell>
+      <mat-cell class="column" *matCellDef="let element">
+        <span class="mobile-label">FirstName:</span>
+        {{element.first_name}}
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="last_name">
-      <mat-header-cell *matHeaderCellDef> lastName</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.last_name}} </mat-cell>
+      <mat-header-cell class="column" *matHeaderCellDef> Last Name</mat-header-cell>
+      <mat-cell class="column" *matCellDef="let element">
+        <span class="mobile-label">LastName:</span>
+        {{element.last_name}}
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="avatar">
-      <mat-header-cell *matHeaderCellDef> avatar</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Avatar</mat-header-cell>
       <mat-cell *matCellDef="let element"><img [src]="element.avatar" alt="avatar"></mat-cell>
     </ng-container>
 

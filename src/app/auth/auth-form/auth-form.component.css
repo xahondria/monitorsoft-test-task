@@ -6,3 +6,12 @@
 .form-field:not(:first-child) {
   margin-left: 1rem;
 }
+
+@media(max-width: 600px) {
+  .form-field {
+    width: 100%;
+  }
+  .form-field:not(:first-child) {
+    margin-left: 0;
+  }
+}

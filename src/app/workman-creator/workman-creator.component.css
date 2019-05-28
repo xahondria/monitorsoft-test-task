@@ -1,7 +1,17 @@
 .button {
   flex-grow: 1;
+  margin-bottom: 1.5rem;
 }
 
 .form-field:not(:first-child) {
   padding-left: 1rem;
+}
+
+@media(max-width: 600px) {
+  .form-field {
+    width: 100%;
+  }
+  .form-field:not(:first-child) {
+    padding-left: 0;
+  }
 }
