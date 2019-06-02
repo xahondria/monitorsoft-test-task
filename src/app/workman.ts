@@ -1,4 +1,4 @@
-export class Workman {
+export interface Workman {
   id: number;
   name: string;
   job: string;

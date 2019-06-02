@@ -6,7 +6,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { UsersGuard } from './auth/guards/users.guard';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: AuthComponent, canActivate: [ AuthGuard ] },
   { path: 'users', component: UsersComponent, canActivate: [ UsersGuard ], canLoad: [ UsersGuard ] },
