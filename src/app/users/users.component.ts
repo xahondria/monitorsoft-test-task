@@ -26,7 +26,6 @@ export class UsersComponent implements AfterViewInit, OnInit {
   }
 
   @HostListener('document: mousemove', [ '$event' ])
-
   onMouseMove(e) {
     this.cursorPosition = {
       top: `${ e.clientY - 15 }px`,

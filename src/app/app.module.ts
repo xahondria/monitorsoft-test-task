@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { MaterialModule } from './material/material.module';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -21,7 +22,6 @@ import { AuthService } from './auth.service';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatProgressSpinnerModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { MatProgressSpinnerModule } from '@angular/material';
     FormsModule,
     CommonModule,
     RouterModule,
-    MatProgressSpinnerModule,
+    LoadingBarHttpClientModule
   ],
   providers: [
     AuthGuard,

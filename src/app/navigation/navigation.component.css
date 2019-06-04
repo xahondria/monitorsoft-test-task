@@ -1,7 +1,12 @@
+:host ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .app-navigation .mat-list-item {
   height: auto;
 }
 
-.mat-list-item {
+.mat-list-item:last-child {
   margin-bottom: 1rem;
 }
