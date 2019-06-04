@@ -14,7 +14,8 @@ const httpOptions = {
 })
 export class UserService {
 
-  private usersPageUrl = 'https://reqres.in/api/users'; // URL to web api
+  private usersPageUrl = 'https://reqres.in/api/users?delay=3'; // URL to web api with delayed response
+  // private usersPageUrl = 'https://reqres.in/api/users'; // URL to web api
 
   constructor(
     private http: HttpClient,

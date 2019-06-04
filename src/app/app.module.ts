@@ -21,6 +21,7 @@ import { AuthService } from './auth.service';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     CommonModule,
     RouterModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     AuthGuard,

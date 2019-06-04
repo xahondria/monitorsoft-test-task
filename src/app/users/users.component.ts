@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../user.service';
 import { MatPaginator } from '@angular/material';
 import { tap } from 'rxjs/operators';
@@ -15,6 +15,8 @@ export class UsersComponent implements AfterViewInit, OnInit {
   totalUsers: number;
   dataSource: User[];
   displayedColumns: string[] = [ 'id', 'email', 'first_name', 'last_name', 'avatar' ];
+  isPageLoaded = false;
+  cursorPosition: object = {top: 0, left: 0};
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -23,11 +25,22 @@ export class UsersComponent implements AfterViewInit, OnInit {
   ) {
   }
 
+  @HostListener('document: mousemove', [ '$event' ])
+
+  onMouseMove(e) {
+    this.cursorPosition = {
+      top: `${ e.clientY - 15 }px`,
+      left: `${ e.clientX - 15 }px`,
+    };
+  }
+
   getUsersPage(page, elementsPerPage): void {
+    this.isPageLoaded = false;
     this.userService.getUsersPage(page, elementsPerPage).subscribe(p => {
       this.page = p;
       this.totalUsers = p.total;
       this.dataSource = p.data;
+      this.isPageLoaded = true;
     });
   }
 

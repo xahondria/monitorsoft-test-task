@@ -54,7 +54,6 @@ export class AuthService {
 
   logout(): Observable<boolean> {
     const url = `${ this.apiUrl }/logout`;
-    console.log(url);
     return this.http.post<any>(url, {
       'refreshToken': this.getRefreshToken()
     }).pipe(

@@ -2,6 +2,17 @@
 
 <h2 class="title">Users GET</h2>
 
+<mat-spinner *ngIf="!isPageLoaded"
+             diameter="30"
+             [ngStyle]="{ 'position': 'absolute',
+                          'z-index': '1000',
+                          'pointer-events': 'none',
+                          'display': 'block',
+                          'top': cursorPosition.top,
+                          'left': cursorPosition.left}
+                          ">
+</mat-spinner>
+
 <div class="container mat-elevation-z8">
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="id">
