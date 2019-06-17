@@ -55,7 +55,7 @@ export class AuthService {
   logout(): Observable<boolean> {
     const url = `${ this.apiUrl }/logout`;
     return this.http.post<any>(url, {
-      'refreshToken': this.getRefreshToken()
+      refreshToken: this.getRefreshToken()
     }).pipe(
       tap(() => {
         this.doLogoutUser();
@@ -73,7 +73,7 @@ export class AuthService {
   refreshToken() {
     const url = `${ this.apiUrl }/refresh`;
     return this.http.post<any>(url, {
-      'refreshToken': this.getRefreshToken()
+      refreshToken: this.getRefreshToken()
     }).pipe(tap((token) => {
         this.storeToken(token);
     }));

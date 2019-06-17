@@ -3,12 +3,13 @@ import { TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('AuthService', () => {
+fdescribe('AuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule]
     });
     localStorage.removeItem('TOKEN');
+    localStorage.removeItem('REFRESH_TOKEN');
   });
 
   it('should be created', () => {

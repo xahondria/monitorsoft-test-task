@@ -24,7 +24,7 @@ export class UsersComponent implements AfterViewInit, OnInit {
   }
 
   getUsersPage(page, elementsPerPage): void {
-    this.userService.getUsersPage(page, elementsPerPage).subscribe(p => {
+    this.userService.getUsersPage(page, elementsPerPage).subscribe((p: Page) => {
       this.page = p;
       this.totalUsers = p.total;
       this.dataSource = p.data;

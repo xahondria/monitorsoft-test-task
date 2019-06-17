@@ -7,6 +7,21 @@
   margin-left: 1rem;
 }
 
+.note {
+  margin-bottom: 1rem;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #aaaaaa;
+}
+
+.note p {
+  margin: 0;
+}
+
+.field {
+  font-weight: bold;
+}
+
 @media(max-width: 600px) {
   .form-field {
     width: 100%;

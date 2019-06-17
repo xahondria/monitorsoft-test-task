@@ -20,6 +20,7 @@ export class WorkmenComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = [ 'select', 'id', 'name', 'job', 'createdAt' ];
   selection = new SelectionModel<Workman>(true, []);
 
+  /** Clears element selection on table */
   @HostListener('document: keydown.escape', [ '$event' ]) onEscape(event: KeyboardEvent) {
     if (event.key === 'Escape' && this.selection.selected.length) {
       this.selection.clear();
@@ -32,9 +33,17 @@ export class WorkmenComponent implements AfterViewInit, OnInit {
   ) {}
 
   /** Opens modal window */
-  openDialog() {
+  openDialog(isItemNew: boolean, workman?: Workman): void {
+
     const dialogConfig = new MatDialogConfig();
-    this.dialog.open(WorkmanCreatorComponent, dialogConfig);
+    dialogConfig.data = { ...dialogConfig.data, title: '' };
+    isItemNew ? dialogConfig.data.title = 'New Workman' : dialogConfig.data.title = 'Edit Workman';
+
+    if (workman) {
+      dialogConfig.data = { ...dialogConfig.data, workman };
+    }
+
+    const dialogRef = this.dialog.open(WorkmanCreatorComponent, dialogConfig);
   }
 
   /** Adds an element to the table */

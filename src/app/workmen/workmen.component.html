@@ -2,7 +2,7 @@
 
 <h2 class="title">Workmen POST, PUT, DELETE</h2>
 
-<button mat-raised-button (click)="openDialog()" class="button" title="Add">Add</button>
+<button mat-raised-button (click)="openDialog(true)" class="button" title="Add">Add</button>
 <button mat-raised-button (click)="delete()" class="button" title="Delete">Delete</button>
 
 <mat-table [dataSource]="dataSource" class="container mat-elevation-z8">
@@ -60,11 +60,11 @@
     <mat-header-cell *matHeaderCellDef> CreatedAt</mat-header-cell>
     <mat-cell *matCellDef="let element">
       <span class="mobile-label">CreatedAt:</span>
-      {{element.createdAt}}
+      {{element.createdAt | date}}
     </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="!selection.isSelected(row) && selection.toggle(row)"></mat-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openDialog(false, row)"></mat-row>
 </mat-table>
 

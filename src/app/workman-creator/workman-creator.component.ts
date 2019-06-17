@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Workman } from '../workman';
 import { WorkmanService } from '../workman.service';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-user-creator',
@@ -13,7 +14,10 @@ export class WorkmanCreatorComponent implements OnInit {
   formGroup: FormGroup;
   newWorkman: Workman;
 
-  constructor(private workmanService: WorkmanService) {}
+  constructor(
+    private workmanService: WorkmanService,
+    @Inject(MAT_DIALOG_DATA) public data
+  ) {}
 
   submit() {
     this.newWorkman = this.formGroup.value;
@@ -30,6 +34,11 @@ export class WorkmanCreatorComponent implements OnInit {
       name: new FormControl(),
       job: new FormControl()
     });
+
+    if (this.data.workman) {
+      this.formGroup.value.name = this.data.workman.name;
+      console.log(this.formGroup.value.name);
+    }
   }
 
 }
