@@ -30,10 +30,29 @@ button:disabled {
   cursor: auto;
 }
 button.clear {
-  color: #888;
+  color: #919191;
   margin-bottom: 12px;
 }
 
 .container {
   margin: 20px;
+}
+
+.popup {
+  position: fixed;
+  z-index: 1000;
+  display: block;
+  top: 0;
+  right: 0;
+
+  width: 320px;
+}
+
+.popup__message {
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 5px;
+
+  background-color: #bababa;
+  opacity: .8;
 }
